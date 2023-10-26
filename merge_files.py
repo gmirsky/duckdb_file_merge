@@ -84,9 +84,7 @@ def extant_file(x):
     if not os.path.exists(x):
         # Argparse uses the ArgumentTypeError to give a rejection message like:
         # error: argument input: x does not exist
-        raise argparse.ArgumentTypeError(
-            f"{x} does not exist"
-        )  # pylint: disable=C0209, W1310
+        raise argparse.ArgumentTypeError(f"{x} does not exist")  # pylint: disable=C0209, W1310
     return x
 
 
