@@ -85,7 +85,7 @@ def extant_file(x):
         # Argparse uses the ArgumentTypeError to give a rejection message like:
         # error: argument input: x does not exist
         raise argparse.ArgumentTypeError(
-            "0 does not exist".format(x)
+            f"{x} does not exist"
         )  # pylint: disable=C0209, W1310
     return x
 
