@@ -4,13 +4,20 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Checks
+    strategy:
+      matrix:
+        python-version: "3.x"
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-python@v2
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
       with:
-        python-version: 3.x
-    - run: pip install --upgrade pip
-    - run: pip install pylint mypy 
-    - run: pylint --disable=all --enable=unused-import $(git ls-files '*.py')
-    - run: mypy --strict $(git ls-files '*.py')
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pylint mypy
+    - name: Analysing the code with pylint and mypy
+      run: |
+        pylint $(git ls-files '*.py')
+        mypy --strict $(git ls-files '*.py')
