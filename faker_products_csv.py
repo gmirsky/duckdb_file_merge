@@ -1,3 +1,6 @@
+"""
+Create a CSV file with fake data using the Faker library.
+"""
 import csv
 from faker import Faker
 from faker_food import FoodProvider
@@ -8,7 +11,7 @@ fake.add_provider(FoodProvider)
 RECORD_COUNT = 75
 
 # Create a CSV file and write the header row
-with open("products.csv", mode="w", newline="") as file:
+with open("products.csv", mode="w", newline="", encoding="utf-8") as file:
     writer = csv.writer(file)
     writer.writerow(["id", "product", "price"])
 
