@@ -1,3 +1,6 @@
+"""
+Create a Parquet file with fake data using the Faker library.
+"""
 from faker import Faker
 from faker_food import FoodProvider
 import pandas as pd

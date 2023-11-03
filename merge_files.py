@@ -93,7 +93,7 @@ def merge_files(file1: File, file2: File, output):
     Merge two files into one using DuckDB and then write to the result to a CSV file.
     """
     # create a DuckDB database in memory
-    conn = duckdb.connect(":memory:")
+    conn = duckdb.connect(":memory:") # pylint: disable=I1101
 
     print()
     if file1.type == "csv":

@@ -1,3 +1,6 @@
+"""
+Create a parquet file with fake data using the faker library.
+"""
 import pandas as pd
 import pyarrow as pa
 import pyarrow.parquet as pq
