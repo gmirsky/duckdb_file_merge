@@ -194,6 +194,7 @@ def execute_and_print_output_of_the_duckdb_command(conn, arg1, arg2):
     """
     Execute and print the output of the DuckDB command.
     """
+    
     print()
     print(arg2)
     print()
@@ -205,6 +206,8 @@ def main():
     """
     Main function for script.
     """
+
+    ENCODING = "utf-8"
 
     args = parse_args()
     print("args")
@@ -230,14 +233,14 @@ def main():
     file1 = File(
         name=args.input1,
         type=file1_type,
-        encoding="utf-8",
+        encoding=ENCODING,
         seperator=",",  # this can be changed to a different seperator
     )
 
     file2 = File(
         name=args.input2,
         type=file2_type,
-        encoding="utf-8",
+        encoding=ENCODING,
         seperator=",",  # this can be changed to a different seperator
     )
 
